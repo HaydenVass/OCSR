@@ -34,7 +34,7 @@
                         </group>
                         <group alignment="center" verticalAlignment="bottom" id="oxi-m8-LVm">
                             <items>
-                                <button width="0.69999999999999996" height="38" alignment="center" verticalAlignment="bottom" title="Home" id="oX1-Rx-81t"/>
+                                <button width="86" height="38" alignment="center" verticalAlignment="bottom" title="Beaches" id="oX1-Rx-81t"/>
                             </items>
                         </group>
                         <group alignment="center" verticalAlignment="bottom" id="xAj-Ma-mpY">
@@ -81,7 +81,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="441" y="172"/>
+            <point key="canvasLocation" x="341" y="172"/>
         </scene>
         <!--WindDetails-->
         <scene sceneID="hvD-i9-auQ">
@@ -108,7 +108,34 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="788" y="172"/>
+            <point key="canvasLocation" x="584" y="172"/>
+        </scene>
+        <!--TempDetails-->
+        <scene sceneID="iUE-tC-U4p">
+            <objects>
+                <controller identifier="TempDetails" id="n0f-cx-nDN" customClass="TempDetails" customModule="VassHayden_OCSR_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Celcius:" id="9qA-Rz-rrs"/>
+                        <label alignment="left" text="tc" id="c4g-fK-VTm"/>
+                        <separator alignment="left" id="LCm-gb-FZt">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="Fahrenheit:" id="ivO-qy-IZm"/>
+                        <label alignment="left" text="tf" id="0qU-Kg-Mox"/>
+                        <separator alignment="left" id="vGG-yo-ZkJ">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="Rec. Wetsuit:" id="KOL-dK-mct"/>
+                        <label alignment="left" text="ws" id="MuJ-xl-S0O"/>
+                    </items>
+                    <connections>
+                        <outlet property="celcLabel" destination="c4g-fK-VTm" id="0gN-5d-2IS"/>
+                        <outlet property="fahrLabel" destination="0qU-Kg-Mox" id="fIN-DO-mAx"/>
+                        <outlet property="wetSuitLabel" destination="MuJ-xl-S0O" id="WwD-AL-V6x"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="837" y="172"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

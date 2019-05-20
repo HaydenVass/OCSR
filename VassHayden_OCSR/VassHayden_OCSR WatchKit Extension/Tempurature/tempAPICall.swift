@@ -9,7 +9,7 @@
 import Foundation
 //api call for swells
 
-var selectedTempReport: WindReport?
+var dataToPass: (String?, Double?, Double?)?
 
 extension InterfaceController{
     func configureTempURL(urlString: String){
@@ -29,7 +29,8 @@ extension InterfaceController{
                         let celcius = json["celcius"] as? Double
                         let fahrenheit = json["fahrenheit"] as? Double
                         let recSuit = json["wetsuit"] as? String
-
+                        
+                        dataToPass = (recSuit, celcius, fahrenheit)
 
                     }
                 }catch{
@@ -38,8 +39,10 @@ extension InterfaceController{
                 // get back on the main thread - perform segue -
                 //checks against most recent minute (by 10s) to present most relevant ata
                 DispatchQueue.main.async {
- 
-                    
+                    if dataToPass != nil{
+                        self.pushController(withName: "TempDetails", context: dataToPass)
+
+                    }
                 }
             }
             task.resume()
