@@ -14,11 +14,11 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="VassHayden_OCSR_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <separator alignment="center" verticalAlignment="bottom" id="S2G-PD-kjN">
+                        <label alignment="center" text="OCSR" id="Hn5-Lb-Pc0"/>
+                        <separator alignment="center" id="S2G-PD-kjN">
                             <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <label alignment="center" verticalAlignment="center" text="OCSR" id="Hn5-Lb-Pc0"/>
-                        <group alignment="center" verticalAlignment="bottom" id="2ym-Hv-CKl">
+                        <group alignment="center" id="2ym-Hv-CKl">
                             <items>
                                 <button width="0.5" alignment="center" verticalAlignment="bottom" title="Surf" id="lc1-jb-VDt">
                                     <connections>
@@ -32,12 +32,7 @@
                                 </button>
                             </items>
                         </group>
-                        <group alignment="center" verticalAlignment="bottom" id="oxi-m8-LVm">
-                            <items>
-                                <button width="86" height="38" alignment="center" verticalAlignment="bottom" title="Beaches" id="oX1-Rx-81t"/>
-                            </items>
-                        </group>
-                        <group alignment="center" verticalAlignment="bottom" id="xAj-Ma-mpY">
+                        <group alignment="center" id="xAj-Ma-mpY">
                             <items>
                                 <button width="0.5" alignment="left" title="Tide" id="rfE-L2-TKR">
                                     <connections>
@@ -51,6 +46,7 @@
                                 </button>
                             </items>
                         </group>
+                        <button width="1" alignment="left" title="place holder" id="9zH-Q9-ujm"/>
                     </items>
                 </controller>
             </objects>
