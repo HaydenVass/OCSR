@@ -29,6 +29,7 @@
 		543E6FA02293061B00A890E4 /* tempAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6F9F2293061B00A890E4 /* tempAPICall.swift */; };
 		543E6FA3229309E000A890E4 /* TempDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA2229309E000A890E4 /* TempDetails.swift */; };
 		543E6FA5229315D000A890E4 /* TideAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA4229315D000A890E4 /* TideAPICall.swift */; };
+		543E6FA8229317B800A890E4 /* TideDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA7229317B800A890E4 /* TideDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		543E6F9F2293061B00A890E4 /* tempAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempAPICall.swift; sourceTree = "<group>"; };
 		543E6FA2229309E000A890E4 /* TempDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDetails.swift; sourceTree = "<group>"; };
 		543E6FA4229315D000A890E4 /* TideAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideAPICall.swift; sourceTree = "<group>"; };
+		543E6FA7229317B800A890E4 /* TideDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				543E6FA4229315D000A890E4 /* TideAPICall.swift */,
+				543E6FA7229317B800A890E4 /* TideDetails.swift */,
 			);
 			path = Tide;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				543E6F7B2291AADD00A890E4 /* ExtensionDelegate.swift in Sources */,
 				543E6F90229202FA00A890E4 /* apiCall.swift in Sources */,
 				543E6F792291AADD00A890E4 /* InterfaceController.swift in Sources */,
+				543E6FA8229317B800A890E4 /* TideDetails.swift in Sources */,
 				543E6FA5229315D000A890E4 /* TideAPICall.swift in Sources */,
 				543E6FA3229309E000A890E4 /* TempDetails.swift in Sources */,
 				543E6FA02293061B00A890E4 /* tempAPICall.swift in Sources */,

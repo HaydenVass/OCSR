@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//api call for swells
+var tideData : (Double?, Double?)?
 
 extension InterfaceController{
     func configureTideURL(urlString: String){
@@ -33,6 +33,7 @@ extension InterfaceController{
                                     let tMeters = thirdLevel["tide_meters"] as? Double
                                     let tide = thirdLevel["tide"] as? Double
                                     
+                                    tideData = (tide, tMeters)
                                 }
                             }
                         }
@@ -43,8 +44,8 @@ extension InterfaceController{
                 // get back on the main thread - perform segue -
                 //checks against most recent minute (by 10s) to present most relevant ata
                 DispatchQueue.main.async {
-                    if selectedReport != nil{
-                        self.pushController(withName: "WindDetails", context: selectedReport)
+                    if tideData != nil{
+                        self.pushController(withName: "TideDetails", context: tideData)
                     }
                 }
             }

@@ -133,6 +133,27 @@
             </objects>
             <point key="canvasLocation" x="837" y="172"/>
         </scene>
+        <!--TideDetails-->
+        <scene sceneID="pwA-Pi-Yyw">
+            <objects>
+                <controller identifier="TideDetails" id="rRZ-wX-xGO" customClass="TideDetails" customModule="VassHayden_OCSR_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Wash Size:" id="jf0-I3-MjT"/>
+                        <label height="20" alignment="left" text="wash meters" id="Wu6-HE-R0I"/>
+                        <separator alignment="left" id="yib-q8-pEi">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="Tide size:" id="1sO-Lp-xQz"/>
+                        <label alignment="left" text="tide meters" id="07Z-xI-0ae"/>
+                    </items>
+                    <connections>
+                        <outlet property="tideSizeLabel" destination="07Z-xI-0ae" id="ovq-E5-BoR"/>
+                        <outlet property="washLabel" destination="Wu6-HE-R0I" id="4MX-36-A4y"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1115" y="172"/>
+        </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>
