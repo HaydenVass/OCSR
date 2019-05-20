@@ -26,7 +26,11 @@ extension InterfaceController{
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
                     {
-                    
+                        let celcius = json["celcius"] as? Double
+                        let fahrenheit = json["fahrenheit"] as? Double
+                        let recSuit = json["wetsuit"] as? String
+
+
                     }
                 }catch{
                     print ("Error: \(error.localizedDescription)")
