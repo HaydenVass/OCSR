@@ -14,7 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="VassHayden_OCSR_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="OCSR" id="Hn5-Lb-Pc0"/>
+                        <label alignment="center" text="OC - Surf Report" id="Hn5-Lb-Pc0"/>
                         <separator alignment="center" id="S2G-PD-kjN">
                             <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
@@ -46,7 +46,7 @@
                                 </button>
                             </items>
                         </group>
-                        <button width="1" alignment="left" title="place holder" id="9zH-Q9-ujm"/>
+                        <button width="1" alignment="left" title="Spot Forecast" id="9zH-Q9-ujm"/>
                     </items>
                 </controller>
             </objects>

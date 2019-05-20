@@ -41,7 +41,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func tidePressed() {
-        print("pressed")
+        configureTideURL(urlString: "http://api.spitcast.com/api/county/tide/orange-county/")
 
         
     }
