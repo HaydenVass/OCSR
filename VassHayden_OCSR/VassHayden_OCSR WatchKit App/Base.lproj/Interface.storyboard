@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="VassHayden_OCSR_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <separator alignment="center" verticalAlignment="bottom" id="S2G-PD-kjN">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="center" verticalAlignment="center" text="OCSR" id="Hn5-Lb-Pc0"/>
+                        <group alignment="center" verticalAlignment="bottom" id="2ym-Hv-CKl">
+                            <items>
+                                <button width="0.5" alignment="center" verticalAlignment="bottom" title="Surf" id="lc1-jb-VDt">
+                                    <connections>
+                                        <action selector="surfPressed" destination="AgC-eL-Hgc" id="6B3-nG-kLo"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="center" verticalAlignment="bottom" title="Winds" id="FFH-SL-dtM">
+                                    <connections>
+                                        <action selector="windsPressed" destination="AgC-eL-Hgc" id="rIv-ha-wUa"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group alignment="center" verticalAlignment="bottom" id="oxi-m8-LVm">
+                            <items>
+                                <button width="0.69999999999999996" height="38" alignment="center" verticalAlignment="bottom" title="Home" id="oX1-Rx-81t"/>
+                            </items>
+                        </group>
+                        <group alignment="center" verticalAlignment="bottom" id="xAj-Ma-mpY">
+                            <items>
+                                <button width="0.5" alignment="left" title="Tide" id="rfE-L2-TKR">
+                                    <connections>
+                                        <action selector="tidePressed" destination="AgC-eL-Hgc" id="ld7-FG-8E4"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="Temp" id="Axw-gG-A7e">
+                                    <connections>
+                                        <action selector="tempPressed" destination="AgC-eL-Hgc" id="vvM-K0-hQx"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="97" y="172"/>
+        </scene>
+        <!--SwellDetails-->
+        <scene sceneID="3FB-aq-RAh">
+            <objects>
+                <controller identifier="SwellDetails" id="JKF-se-APL" customClass="SwellDetails" customModule="VassHayden_OCSR_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" verticalAlignment="bottom" text="Swell Direction :" id="VMj-8J-jZg"/>
+                        <label alignment="left" verticalAlignment="bottom" text="dir label" id="Cwo-P1-xEg"/>
+                        <separator alignment="left" verticalAlignment="bottom" id="dBr-XQ-5OI">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" verticalAlignment="bottom" text="Swell Height:" id="3Ab-Ay-oi7"/>
+                        <label width="136" alignment="left" verticalAlignment="bottom" text="hs label" id="C6W-hR-8q5"/>
+                        <separator alignment="left" verticalAlignment="bottom" id="b9b-Al-cEQ">
+                            <color key="color" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" verticalAlignment="bottom" text="Trough time:" id="kIb-JX-kj6"/>
+                        <label alignment="left" verticalAlignment="bottom" text="tp label" id="raz-hI-8qg"/>
+                    </items>
+                    <connections>
+                        <outlet property="dirLabel" destination="Cwo-P1-xEg" id="Kz8-jV-X0U"/>
+                        <outlet property="hsLabel" destination="C6W-hR-8q5" id="qGB-94-AiW"/>
+                        <outlet property="tpLabel" destination="raz-hI-8qg" id="IZC-pz-QBy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="441" y="172"/>
+        </scene>
+        <!--WindDetails-->
+        <scene sceneID="hvD-i9-auQ">
+            <objects>
+                <controller identifier="WindDetails" id="iVT-WW-dBd" customClass="WindDetails" customModule="VassHayden_OCSR_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Speed Knots:" id="R4C-cY-hfq"/>
+                        <label alignment="left" text="k-label" id="XaU-oU-yFm"/>
+                        <separator alignment="left" id="acX-UE-Y9k">
+                            <color key="color" red="0.040534032534246575" green="0.87323927879333496" blue="0.87325406074523926" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="Speed Mph:" id="tbU-Dy-DPR"/>
+                        <label alignment="left" text="m-label" id="ZA1-eU-jKN"/>
+                        <separator alignment="left" id="QSU-tl-bxu">
+                            <color key="color" red="0.040534032534246575" green="0.87323927879333496" blue="0.87325406074523926" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="Direction:" id="Q9N-Fr-wpn"/>
+                        <label alignment="left" text="d-label" id="KZL-2T-EZV"/>
+                    </items>
+                    <connections>
+                        <outlet property="directionLabel" destination="KZL-2T-EZV" id="WAf-Co-8RV"/>
+                        <outlet property="knotsLabel" destination="XaU-oU-yFm" id="8eo-QS-wLu"/>
+                        <outlet property="mphLabel" destination="ZA1-eU-jKN" id="Ph6-vl-Vp6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="788" y="172"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="178" y="770"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="VassHayden_OCSR_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="776" y="655"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="VassHayden_OCSR_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="594" y="996"/>
+        </scene>
+    </scenes>
+</document>
