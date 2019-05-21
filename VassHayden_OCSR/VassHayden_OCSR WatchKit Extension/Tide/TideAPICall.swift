@@ -14,7 +14,6 @@ extension InterfaceController{
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         if let validURL = URL (string: urlString){
-            print (validURL)
             let task = session.dataTask(with: validURL) { (data, response, error) in
                 if error != nil {return}
                 guard let response = response as? HTTPURLResponse,
