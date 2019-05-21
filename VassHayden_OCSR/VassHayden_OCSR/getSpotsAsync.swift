@@ -12,6 +12,9 @@ import Foundation
 
 extension ViewController{
     func configureSpotUrl(urlString: String){
+        
+        var spotArray: [BeachSpot] = []
+        
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         if let validURL = URL (string: urlString){
@@ -30,8 +33,7 @@ extension ViewController{
                             if let secondLevel = data as? [String: Any]{
                                 let name = secondLevel["spot_name"] as? String
                                 let id = secondLevel["spot_id"] as? Int
-                                print (name)
-                                print (id)
+                                spotArray.append(BeachSpot(_name: name ?? "na", _id: id ?? 1))
                             }
                         }
                     }
@@ -41,7 +43,7 @@ extension ViewController{
                 // get back on the main thread - perform segue -
                 //checks against most recent minute (by 10s) to present most relevant ata
                 DispatchQueue.main.async {
-                  
+                    //refresh table view
                 }
             }
             task.resume()
