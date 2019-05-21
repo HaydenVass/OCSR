@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        configureSpotUrl(urlString: "http://api.spitcast.com/api/county/spots/orange-county/")
+        
     }
 
 

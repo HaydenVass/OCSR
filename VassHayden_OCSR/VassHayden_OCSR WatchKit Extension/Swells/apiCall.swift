@@ -30,16 +30,7 @@ extension InterfaceController{
                                 let chour = self.getCurrentHour()
                                 // checks the current hour and pulls the data from API relevant to that hour
                                 if hour == chour{
-                                    let hString = hour ?? ""
                                     
-                                    print(hString)
-//                                    var dir: Int? = 0
-//                                    var hs: Double? = 0
-//                                    var tp: Double? = 0
-//                                    var minute: String = "one"
-                                    
-                                    
-                                    //make secondary dictionary - for each number 1 -5
                                     if let zero = thirdLevel["0"] as? [String: Any]{
                                         let dir = zero["dir"] as? Int
                                         let hs = zero["hs"] as? Double
