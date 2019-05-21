@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		542CDBAC229470DE000CE8AD /* BeachSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAB229470DE000CE8AD /* BeachSpot.swift */; };
 		542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAD22947298000CE8AD /* getSpotsAsync.swift */; };
+		542CDBB0229479A5000CE8AD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAF229479A5000CE8AD /* TableViewCell.swift */; };
 		543E6F562291AADB00A890E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6F552291AADB00A890E4 /* AppDelegate.swift */; };
 		543E6F582291AADB00A890E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6F572291AADB00A890E4 /* ViewController.swift */; };
 		543E6F5B2291AADB00A890E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543E6F592291AADB00A890E4 /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		542CDBAB229470DE000CE8AD /* BeachSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachSpot.swift; sourceTree = "<group>"; };
 		542CDBAD22947298000CE8AD /* getSpotsAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSpotsAsync.swift; sourceTree = "<group>"; };
+		542CDBAF229479A5000CE8AD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		543E6F522291AADB00A890E4 /* VassHayden_OCSR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VassHayden_OCSR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		543E6F552291AADB00A890E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		543E6F572291AADB00A890E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,14 +152,15 @@
 		543E6F542291AADB00A890E4 /* VassHayden_OCSR */ = {
 			isa = PBXGroup;
 			children = (
+				543E6F592291AADB00A890E4 /* Main.storyboard */,
 				543E6F552291AADB00A890E4 /* AppDelegate.swift */,
 				543E6F572291AADB00A890E4 /* ViewController.swift */,
-				543E6F592291AADB00A890E4 /* Main.storyboard */,
 				543E6F5C2291AADD00A890E4 /* Assets.xcassets */,
 				543E6F5E2291AADD00A890E4 /* LaunchScreen.storyboard */,
 				543E6F612291AADD00A890E4 /* Info.plist */,
 				542CDBAD22947298000CE8AD /* getSpotsAsync.swift */,
 				542CDBAB229470DE000CE8AD /* BeachSpot.swift */,
+				542CDBAF229479A5000CE8AD /* TableViewCell.swift */,
 			);
 			path = VassHayden_OCSR;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542CDBB0229479A5000CE8AD /* TableViewCell.swift in Sources */,
 				543E6F582291AADB00A890E4 /* ViewController.swift in Sources */,
 				542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */,
 				543E6F562291AADB00A890E4 /* AppDelegate.swift in Sources */,

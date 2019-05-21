@@ -28,7 +28,6 @@ extension ViewController{
                 do{
                     if let json = try JSONSerialization.jsonObject(with: data) as? [Any]
                     {
-                        print(json)
                         for data in json{
                             if let secondLevel = data as? [String: Any]{
                                 let name = secondLevel["spot_name"] as? String
@@ -40,10 +39,9 @@ extension ViewController{
                 }catch{
                     print ("Error: \(error.localizedDescription)")
                 }
-                // get back on the main thread - perform segue -
-                //checks against most recent minute (by 10s) to present most relevant ata
                 DispatchQueue.main.async {
-                    //refresh table view
+                    self.allOCSpots = spotArray
+                    self.tableview.reloadData()
                 }
             }
             task.resume()
