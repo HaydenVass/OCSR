@@ -22,8 +22,4 @@ Tested Devices:
 
 -	iPhone Xs Max with Apple Watch series 4 – 44 mm.
 
-Other things to note:
--	Initial repo accidentally got deleted, so current repo is a few days behind of the actual work load.
-Repo:
--	https://github.com/HaydenVass/OCSR
 
