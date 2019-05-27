@@ -9,7 +9,7 @@
 import Foundation
 import WatchKit
 
-class BeachSpot:MKPointAnnotation {
+class BeachSpot: MKPointAnnotation {
     var name: String?
     var spotID: Int?
     var latitude: Double?

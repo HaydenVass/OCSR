@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54003A8A229C855C00B8AB18 /* getSpotForecastAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */; };
 		542CDBAC229470DE000CE8AD /* BeachSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAB229470DE000CE8AD /* BeachSpot.swift */; };
 		542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAD22947298000CE8AD /* getSpotsAsync.swift */; };
 		542CDBB0229479A5000CE8AD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAF229479A5000CE8AD /* TableViewCell.swift */; };
@@ -80,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSpotForecastAsync.swift; sourceTree = "<group>"; };
 		542CDBAB229470DE000CE8AD /* BeachSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachSpot.swift; sourceTree = "<group>"; };
 		542CDBAD22947298000CE8AD /* getSpotsAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSpotsAsync.swift; sourceTree = "<group>"; };
 		542CDBAF229479A5000CE8AD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54003A88229C854300B8AB18 /* async_task */ = {
+			isa = PBXGroup;
+			children = (
+				542CDBAD22947298000CE8AD /* getSpotsAsync.swift */,
+				54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */,
+			);
+			path = async_task;
+			sourceTree = "<group>";
+		};
 		543C8C4C229C6AC3006CBF16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +184,7 @@
 				543E6F5E2291AADD00A890E4 /* LaunchScreen.storyboard */,
 				543E6F612291AADD00A890E4 /* Info.plist */,
 				543C8C4A229C6AA3006CBF16 /* LocationManager.swift */,
-				542CDBAD22947298000CE8AD /* getSpotsAsync.swift */,
+				54003A88229C854300B8AB18 /* async_task */,
 				542CDBAB229470DE000CE8AD /* BeachSpot.swift */,
 				542CDBAF229479A5000CE8AD /* TableViewCell.swift */,
 			);
@@ -380,6 +391,7 @@
 				542CDBB0229479A5000CE8AD /* TableViewCell.swift in Sources */,
 				543E6F582291AADB00A890E4 /* ViewController.swift in Sources */,
 				543C8C4B229C6AA3006CBF16 /* LocationManager.swift in Sources */,
+				54003A8A229C855C00B8AB18 /* getSpotForecastAsync.swift in Sources */,
 				542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */,
 				543E6F562291AADB00A890E4 /* AppDelegate.swift in Sources */,
 				542CDBAC229470DE000CE8AD /* BeachSpot.swift in Sources */,
