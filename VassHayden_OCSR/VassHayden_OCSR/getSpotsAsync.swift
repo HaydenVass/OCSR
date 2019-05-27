@@ -32,7 +32,10 @@ extension ViewController{
                             if let secondLevel = data as? [String: Any]{
                                 let name = secondLevel["spot_name"] as? String
                                 let id = secondLevel["spot_id"] as? Int
-                                spotArray.append(BeachSpot(_name: name ?? "na", _id: id ?? 1))
+                                let latitude = secondLevel["latitude"] as? Double
+                                let longitutde = secondLevel["longitude"] as? Double
+
+                                spotArray.append(BeachSpot(_name: name ?? "n/a", _id: id ?? 0, lat: latitude ?? 0.0, long: longitutde ?? 0.0))
                             }
                         }
                     }
@@ -41,7 +44,7 @@ extension ViewController{
                 }
                 DispatchQueue.main.async {
                     self.allOCSpots = spotArray
-                    self.tableview.reloadData()
+                    self.pointSpotPlots()
                 }
             }
             task.resume()

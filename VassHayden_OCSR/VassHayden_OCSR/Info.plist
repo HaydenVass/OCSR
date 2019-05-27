@@ -4,10 +4,19 @@
 <dict>
 
 	<key>NSAppTransportSecurity</key>
-  <dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-  </dict>
+  	<dict>
+   	<key>NSAllowsArbitraryLoads</key>
+   	<true/>
+  	</dict>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Program requires GPS to show all surf spots.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Program requires GPS to show all surf spots.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Program requires GPS to show all surf spots.</string>
+
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

@@ -11,9 +11,14 @@ import Foundation
 class BeachSpot{
     var name: String?
     var spotID: Int?
+    var latitude: Double?
+    var longitude: Double?
     
-    init(_name: String, _id: Int) {
+    
+    init(_name: String, _id: Int, lat: Double, long: Double) {
         name = _name
         spotID = _id
+        latitude = lat
+        longitude = long
     }
 }
