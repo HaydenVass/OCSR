@@ -41,11 +41,14 @@
                                 <rect key="frame" x="0.0" y="124" width="414" height="29"/>
                                 <color key="backgroundColor" red="0.04053403253" green="0.87323927879999996" blue="0.8732540607" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="e43-Kv-uAf">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MyIdentifier" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="e43-Kv-uAf">
                                 <rect key="frame" x="0.0" y="161" width="414" height="441"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="441" id="3Fh-9j-uvO"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Bac-Oh-QzF"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-SL-Lq9">
                                 <rect key="frame" x="0.0" y="605" width="414" height="257"/>

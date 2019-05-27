@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import WatchKit
 
-class BeachSpot{
+class BeachSpot:MKPointAnnotation {
     var name: String?
     var spotID: Int?
     var latitude: Double?

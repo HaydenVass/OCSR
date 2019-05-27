@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     @IBOutlet weak var mapView: MKMapView!
     var coreLocationManager = CLLocationManager();
     var locationManager: LocationManager!
@@ -41,18 +41,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         //turn them into point annotations and add them to the list
         var allSpotAnnotations: [MKPointAnnotation] = []
         for spot in allOCSpots{
-            print(allOCSpots.count)
+            let annotation: MKPointAnnotation = spot
             let savedCoord = CLLocationCoordinate2D(latitude: spot.latitude ?? 0.0, longitude: spot.longitude ?? 0.0)
-            let annotation = MKPointAnnotation()
-            
             annotation.coordinate = savedCoord
             allSpotAnnotations.append(annotation)
         }
         
         mapView.showAnnotations(allSpotAnnotations, animated: true)
-        
     }
 
-
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let name = (view.annotation as? BeachSpot)?.name {
+            print("test  " + name)
+        }
+    }
 }
+
 
