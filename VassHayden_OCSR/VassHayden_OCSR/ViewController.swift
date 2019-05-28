@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import WatchConnectivity
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     
+    @IBOutlet weak var detailsView: UIView!
     
     @IBOutlet weak var spotNameLabel: UILabel!
     @IBOutlet weak var shapeLabel: UILabel!
@@ -20,14 +22,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var windLabel: UILabel!
     
     @IBOutlet weak var popupConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var mapView: MKMapView!
+    
+    var currentSelectedLocation: MKAnnotationView?
+    
     var coreLocationManager = CLLocationManager();
     var locationManager: LocationManager!
 
+    
     var allOCSpots: [BeachSpot] = []
+    var allFavoriteSpotDetails: [SpotDetails] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        if (WCSession.isSupported()) {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+        
+        configureUIElements()
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         coreLocationManager.delegate = self
         locationManager = LocationManager.sharedInstance
@@ -57,6 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let savedCoord = CLLocationCoordinate2D(latitude: spot.latitude ?? 0.0, longitude: spot.longitude ?? 0.0)
             annotation.coordinate = savedCoord
             annotation.title = spot.name
+            annotation.subtitle = String(spot.spotID ?? 0)
             allSpotAnnotations.append(annotation)
         }
         
@@ -71,8 +87,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //gets beach ID to pull against API
         if let id = (view.annotation as? BeachSpot)?.spotID{
             let strId = String(id)
-            configureSpotForecast(urlString: "http://api.spitcast.com/api/spot/forecast/" + strId + "/")
+            configureForecast(urlString: "http://api.spitcast.com/api/spot/forecast/" + strId + "/")
         }
+        currentSelectedLocation = view
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -81,12 +98,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             beachAnnotation.tintColor = .blue
             beachAnnotation.titleVisibility = .adaptive
             beachAnnotation.canShowCallout = true
-            
             return beachAnnotation
         }
         return nil
     }
     
+    
+    @IBAction func favoritePressed(_ sender: Any) {
+        let url = "http://api.spitcast.com/api/spot/forecast/" + (currentSelectedLocation?.annotation?.subtitle!)!
+        + "/"
+        configureFavSpotForecast(urlString: url)
+    }
     
     @IBAction func dismissPopOver(_ sender: Any) {
         animateDetails(duration: 0.3, xAxisConstant: -450)
@@ -99,6 +121,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             self.view.layoutIfNeeded()
         }
     }
+    
+    func getCurrentHour() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hha"
+        var str = formatter.string(from: Date())
+        if str.prefix(1) == "0"{
+            str = String(str.dropFirst(1))
+        }
+        return str
+    }
+    
+
+}
+
+extension ViewController: WCSessionDelegate{
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    
+    func sessionDidDeactivate(_ session: WCSession) {}
+    
+    func sendToWatch() {
+        let session = WCSession.default
+        var spotIDArray : [String] = []
+        for spot in allFavoriteSpotDetails{
+            spotIDArray.append(spot.spotID ?? "na")
+        }
+
+        if session.activationState == .activated {
+            let appDictionary = ["message": spotIDArray]
+            do {
+                try session.updateApplicationContext(appDictionary)
+                print("updating context from phone")
+            } catch {
+                print("error")
+            }
+        }
+    }
+    
     
 }
 

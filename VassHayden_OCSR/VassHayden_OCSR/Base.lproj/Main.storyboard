@@ -47,8 +47,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Bac-Oh-QzF"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-SL-Lq9">
-                                <rect key="frame" x="-408.5" y="545" width="331" height="269"/>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-SL-Lq9">
+                                <rect key="frame" x="-408.5" y="531.5" width="331" height="296"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spot Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNi-fl-ooz">
                                         <rect key="frame" x="8" y="8" width="118" height="21"/>
@@ -134,14 +134,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN5-Vf-Zal">
-                                        <rect key="frame" x="138.5" y="119.5" width="54" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Dismiss"/>
-                                        <connections>
-                                            <action selector="dismissPopOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="teB-WM-81m"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzK-Io-Rdk">
                                         <rect key="frame" x="154" y="181" width="252" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -149,6 +141,22 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN5-Vf-Zal">
+                                        <rect key="frame" x="40" y="235" width="54" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Dismiss"/>
+                                        <connections>
+                                            <action selector="dismissPopOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="teB-WM-81m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKn-Fu-C4d">
+                                        <rect key="frame" x="210" y="235" width="55" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="favoritePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jF-i1-1RV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -170,7 +178,7 @@
                             <constraint firstItem="9Ge-u0-O27" firstAttribute="top" secondItem="0nK-sP-voB" secondAttribute="bottom" constant="15" id="i9g-2c-6bf"/>
                             <constraint firstAttribute="trailing" secondItem="0nK-sP-voB" secondAttribute="trailing" id="iAK-sS-GV9"/>
                             <constraint firstItem="e43-Kv-uAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="iNT-Qx-paH"/>
-                            <constraint firstItem="gbE-SL-Lq9" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="kzy-ar-W1f"/>
+                            <constraint firstItem="gbE-SL-Lq9" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.33" id="kzy-ar-W1f"/>
                             <constraint firstItem="0nK-sP-voB" firstAttribute="leading" secondItem="9Ge-u0-O27" secondAttribute="leading" id="lAD-L9-dWh"/>
                             <constraint firstItem="9Ge-u0-O27" firstAttribute="trailing" secondItem="kZi-Vh-88o" secondAttribute="trailing" id="o10-eX-1BF"/>
                             <constraint firstItem="e43-Kv-uAf" firstAttribute="centerY" secondItem="Uee-0j-aNJ" secondAttribute="centerY" multiplier="1.13" id="pbU-1A-d6v"/>
@@ -180,6 +188,7 @@
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
                     <connections>
+                        <outlet property="detailsView" destination="gbE-SL-Lq9" id="vbn-dM-WmM"/>
                         <outlet property="mapView" destination="e43-Kv-uAf" id="RDJ-IA-N2c"/>
                         <outlet property="popupConstraint" destination="M2o-p8-lhA" id="Pkb-dx-RFp"/>
                         <outlet property="shapeLabel" destination="hPo-db-bSJ" id="OKx-GP-ZuN"/>

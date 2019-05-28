@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54003A8A229C855C00B8AB18 /* getSpotForecastAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */; };
+		54003A8C229CAA3200B8AB18 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54003A8B229CAA3200B8AB18 /* UIElements.swift */; };
 		542CDBAC229470DE000CE8AD /* BeachSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAB229470DE000CE8AD /* BeachSpot.swift */; };
 		542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAD22947298000CE8AD /* getSpotsAsync.swift */; };
 		542CDBB0229479A5000CE8AD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CDBAF229479A5000CE8AD /* TableViewCell.swift */; };
@@ -36,6 +37,9 @@
 		543E6FA3229309E000A890E4 /* TempDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA2229309E000A890E4 /* TempDetails.swift */; };
 		543E6FA5229315D000A890E4 /* TideAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA4229315D000A890E4 /* TideAPICall.swift */; };
 		543E6FA8229317B800A890E4 /* TideDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543E6FA7229317B800A890E4 /* TideDetails.swift */; };
+		548315A2229D6143005F6DE9 /* SpotDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548315A1229D6143005F6DE9 /* SpotDetails.swift */; };
+		548315A4229D68FC005F6DE9 /* GetFavoriteDetailsAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548315A3229D68FC005F6DE9 /* GetFavoriteDetailsAsync.swift */; };
+		548315AD229D856B005F6DE9 /* SpotDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548315A1229D6143005F6DE9 /* SpotDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSpotForecastAsync.swift; sourceTree = "<group>"; };
+		54003A8B229CAA3200B8AB18 /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
 		542CDBAB229470DE000CE8AD /* BeachSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachSpot.swift; sourceTree = "<group>"; };
 		542CDBAD22947298000CE8AD /* getSpotsAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSpotsAsync.swift; sourceTree = "<group>"; };
 		542CDBAF229479A5000CE8AD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +120,8 @@
 		543E6FA2229309E000A890E4 /* TempDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDetails.swift; sourceTree = "<group>"; };
 		543E6FA4229315D000A890E4 /* TideAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideAPICall.swift; sourceTree = "<group>"; };
 		543E6FA7229317B800A890E4 /* TideDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideDetails.swift; sourceTree = "<group>"; };
+		548315A1229D6143005F6DE9 /* SpotDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetails.swift; sourceTree = "<group>"; };
+		548315A3229D68FC005F6DE9 /* GetFavoriteDetailsAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoriteDetailsAsync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +148,7 @@
 			children = (
 				542CDBAD22947298000CE8AD /* getSpotsAsync.swift */,
 				54003A89229C855C00B8AB18 /* getSpotForecastAsync.swift */,
+				548315A3229D68FC005F6DE9 /* GetFavoriteDetailsAsync.swift */,
 			);
 			path = async_task;
 			sourceTree = "<group>";
@@ -180,12 +188,13 @@
 				543E6F592291AADB00A890E4 /* Main.storyboard */,
 				543E6F552291AADB00A890E4 /* AppDelegate.swift */,
 				543E6F572291AADB00A890E4 /* ViewController.swift */,
+				54003A8B229CAA3200B8AB18 /* UIElements.swift */,
 				543E6F5C2291AADD00A890E4 /* Assets.xcassets */,
 				543E6F5E2291AADD00A890E4 /* LaunchScreen.storyboard */,
 				543E6F612291AADD00A890E4 /* Info.plist */,
 				543C8C4A229C6AA3006CBF16 /* LocationManager.swift */,
 				54003A88229C854300B8AB18 /* async_task */,
-				542CDBAB229470DE000CE8AD /* BeachSpot.swift */,
+				548315A0229D611B005F6DE9 /* objects */,
 				542CDBAF229479A5000CE8AD /* TableViewCell.swift */,
 			);
 			path = VassHayden_OCSR;
@@ -254,6 +263,15 @@
 				543E6FA7229317B800A890E4 /* TideDetails.swift */,
 			);
 			path = Tide;
+			sourceTree = "<group>";
+		};
+		548315A0229D611B005F6DE9 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				542CDBAB229470DE000CE8AD /* BeachSpot.swift */,
+				548315A1229D6143005F6DE9 /* SpotDetails.swift */,
+			);
+			path = objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +412,9 @@
 				54003A8A229C855C00B8AB18 /* getSpotForecastAsync.swift in Sources */,
 				542CDBAE22947298000CE8AD /* getSpotsAsync.swift in Sources */,
 				543E6F562291AADB00A890E4 /* AppDelegate.swift in Sources */,
+				54003A8C229CAA3200B8AB18 /* UIElements.swift in Sources */,
+				548315A2229D6143005F6DE9 /* SpotDetails.swift in Sources */,
+				548315A4229D68FC005F6DE9 /* GetFavoriteDetailsAsync.swift in Sources */,
 				542CDBAC229470DE000CE8AD /* BeachSpot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548315AD229D856B005F6DE9 /* SpotDetails.swift in Sources */,
 				543E6F942292474A00A890E4 /* SwellDetails.swift in Sources */,
 				543E6F9E229303A800A890E4 /* WindDetails.swift in Sources */,
 				543E6F9C2293022E00A890E4 /* WindReport.swift in Sources */,

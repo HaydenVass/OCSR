@@ -8,17 +8,25 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var swellCall: [SwellReport] = []
-
+    fileprivate let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        if (WCSession.isSupported()) {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         
-        // Configure interface objects here.
     }
     
     override func willActivate() {
@@ -31,7 +39,11 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        //array of favorited spot ids
+        let idArray = applicationContext["message"] as? [String]
+    }
+    
     @IBAction func surfPressed() {
         configureURL(urlString: "http://api.spitcast.com/api/county/swell/orange-county/")
     }
@@ -43,7 +55,6 @@ class InterfaceController: WKInterfaceController {
     @IBAction func tidePressed() {
         configureTideURL(urlString: "http://api.spitcast.com/api/county/tide/orange-county/")
 
-        
     }
     @IBAction func tempPressed() {
         configureTempURL(urlString: "http://api.spitcast.com/api/county/water-temperature/orange-county/")
@@ -66,6 +77,5 @@ class InterfaceController: WKInterfaceController {
         str = String(str.dropLast(1))
         return str
     }
-    
     
 }

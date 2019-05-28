@@ -9,8 +9,8 @@
 import Foundation
 
 extension ViewController{
-    func configureForecast(urlString: String){
-        var dataToUpdate: (String, String, String, String, String, Int)? = nil
+    func configureFavSpotForecast(urlString: String){
+        var newFavorite: SpotDetails? = nil
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -33,12 +33,14 @@ extension ViewController{
                                     let shape = secondLevel["shape"] as? String
                                     let name = secondLevel["spot_name"] as? String
                                     let sizer = secondLevel["size"] as? Int
+                                    let id = secondLevel["spot_id"] as? Int
                                     if let shapeDetails = secondLevel["shape_detail"] as? [String: Any]{
                                         let swell = shapeDetails["swell"] as? String
                                         let tide = shapeDetails["tide"] as? String
                                         let wind = shapeDetails["wind"] as? String
-                                        dataToUpdate = (shape, swell, tide, wind, name, sizer)
-                                            as? (String, String, String, String, String, Int)
+                                        let idStr = String(id ?? 0)
+                                        
+                                        newFavorite = SpotDetails(_name: name ?? "na", _id: idStr, _wind: wind ?? "na", _waveSize: sizer ?? 0, _tide: tide ?? "na", _swell: swell ?? "na", _waveShape: shape ?? "na")
                                     }
                                 }
                             }
@@ -48,15 +50,8 @@ extension ViewController{
                     print ("Error: \(error.localizedDescription)")
                 }
                 DispatchQueue.main.async {
-                    let size = dataToUpdate?.5 ?? 0
-                    let sizeStr = String(size)
-                    
-                    self.spotNameLabel.text = dataToUpdate?.4
-                    self.shapeLabel.text = dataToUpdate?.0
-                    self.sizeLabel.text = sizeStr
-                    self.swellLabel.text = dataToUpdate?.1
-                    self.tideLabel.text = dataToUpdate?.2
-                    self.windLabel.text = dataToUpdate?.3
+                    self.allFavoriteSpotDetails.append(newFavorite!)
+                    self.sendToWatch()
                 }
             }
             task.resume()
