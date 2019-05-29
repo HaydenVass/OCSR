@@ -16,10 +16,11 @@ class TideDetails: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         if let details = context as? (Double, Double){
-            tideSizeLabel.setText("\(details.0))")
-            washLabel.setText("\(details.1)")
+            let details0 = String(format: "%.2f", details.0)
+            let details1 = String(format: "%.2f", details.1)
 
-            
+            tideSizeLabel.setText(details0)
+            washLabel.setText(details1)
         }
     }
 }

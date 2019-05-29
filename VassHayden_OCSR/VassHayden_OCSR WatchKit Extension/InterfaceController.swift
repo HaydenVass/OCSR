@@ -14,6 +14,8 @@ import WatchConnectivity
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var swellCall: [SwellReport] = []
+    var favsFromPhone: [String] = []
+    var favoritedIds: [(String, Int)] = []
     fileprivate let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     @available(watchOS 2.2, *)
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -41,7 +43,15 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         //array of favorited spot ids
-        let idArray = applicationContext["message"] as? [String]
+        let idArray = applicationContext["message"] as? [String] ?? []
+        favoritedIds.removeAll()
+        let urlBeginning = "http://api.spitcast.com/api/spot/forecast/"
+        let urlEnd = "/"
+        for id in idArray{
+            print(urlBeginning + id + urlEnd)
+            getSpotNames(urlString: urlBeginning + id + urlEnd)
+        }
+        
     }
     
     @IBAction func surfPressed() {
@@ -60,7 +70,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         configureTempURL(urlString: "http://api.spitcast.com/api/county/water-temperature/orange-county/")
     }
     
-    func getCurrentHour() -> String{
+    
+    @IBAction func spotForecastPressed() {
+        self.pushController(withName: "tableView", context: favoritedIds)
+    }
+    
+    static func getCurrentHour() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "hha"
         var str = formatter.string(from: Date())

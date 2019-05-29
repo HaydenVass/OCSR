@@ -17,6 +17,7 @@ class TempDetails: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         if let details = context as? (String, Double, Double){
+            print(details)
             wetSuitLabel.setText(details.0)
             fahrLabel.setText("\(details.2)")
             celcLabel.setText("\(details.1)")

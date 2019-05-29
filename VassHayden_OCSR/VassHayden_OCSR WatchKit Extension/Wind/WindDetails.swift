@@ -20,7 +20,8 @@ class WindDetails: WKInterfaceController {
         super.awake(withContext: context)
         if let details = context as? WindReport{
             knotsLabel.setText("\(details.knots ?? 0.0)")
-            mphLabel.setText("\(details.mph ?? 0.0)")
+            let mph = String(format: "%.2f", details.mph ?? 0.0)
+            mphLabel.setText(mph)
             directionLabel.setText("\(details.direcrtion ?? 0.0) \(details.directionStr ?? "na")")
         }
     }

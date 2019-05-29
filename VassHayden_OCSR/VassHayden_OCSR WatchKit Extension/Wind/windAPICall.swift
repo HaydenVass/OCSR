@@ -7,10 +7,8 @@
 //
 
 import Foundation
-//api call for swells
-
+//api call for wind
 var selectedReport: WindReport?
-
 extension InterfaceController{
     func configureWindURL(urlString: String){
         let config = URLSessionConfiguration.default
@@ -28,7 +26,7 @@ extension InterfaceController{
                         for data in json{
                             if let thirdLevel = data as? [String: Any]{
                                 let hour = thirdLevel["hour"] as? String
-                                let chour = self.getCurrentHour()
+                                let chour = InterfaceController.getCurrentHour()
                                 // checks the current hour and pulls the data from API relevant to that hour
                                 if hour == chour{
                                     let knots = thirdLevel["speed_kts"] as? Double

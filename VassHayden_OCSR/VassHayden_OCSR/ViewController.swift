@@ -35,20 +35,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+      //sets up session
         if (WCSession.isSupported()) {
             let session = WCSession.default
             session.delegate = self
             session.activate()
         }
-        
+        //configures ui elements
         configureUIElements()
+        //registers map
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         coreLocationManager.delegate = self
         locationManager = LocationManager.sharedInstance
         configureSpotUrl(urlString: "http://api.spitcast.com/api/county/spots/orange-county/")
         let authorizationCode = CLLocationManager.authorizationStatus()
 
+        //gets authorization to use maps
         if authorizationCode == CLAuthorizationStatus.notDetermined && coreLocationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) ||
             coreLocationManager.responds(to: Selector(("requestWhenInUseAuthroization"))){
             if (Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription") != nil){
@@ -58,11 +60,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 print("no descriptiong provided")
             }
         }else{
-            //if the user has given permission the spots will be plotted on the map
-            //pointSpotPlots()
+          
         }
     }
     
+    // MapView functions
     func pointSpotPlots(){
         // loop through all spots returned from async task and create CL location cooridante objects from their lats / longs
         //turn them into point annotations and add them to the list
@@ -103,18 +105,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return nil
     }
     
-    
+    // adds beach to favorite
     @IBAction func favoritePressed(_ sender: Any) {
         let url = "http://api.spitcast.com/api/spot/forecast/" + (currentSelectedLocation?.annotation?.subtitle!)!
         + "/"
         configureFavSpotForecast(urlString: url)
+        
     }
     
+    //dismisses detail view
     @IBAction func dismissPopOver(_ sender: Any) {
         animateDetails(duration: 0.3, xAxisConstant: -450)
     }
     
-    
+    // animates details screen when selecting a beach pin
     func animateDetails(duration: Double, xAxisConstant: CGFloat){
         popupConstraint.constant = xAxisConstant
         UIView.animate(withDuration: duration) {
@@ -122,6 +126,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
+    //gets current hour to check agains the API
     func getCurrentHour() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "hha"
@@ -131,25 +136,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         return str
     }
-    
-
 }
 
+// watch sesson delegate - takes favorited beaches from phone and passes
+// id to watch to be parsed for quick checking
 extension ViewController: WCSessionDelegate{
-
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
-    
     func sessionDidBecomeInactive(_ session: WCSession) {}
-    
     func sessionDidDeactivate(_ session: WCSession) {}
-    
     func sendToWatch() {
         let session = WCSession.default
         var spotIDArray : [String] = []
         for spot in allFavoriteSpotDetails{
             spotIDArray.append(spot.spotID ?? "na")
         }
-
+        // add favorites array to user defaults
+        //let userDefault = UserDefaults.standard
+        
+        spotIDArray.removeDuplicates();
         if session.activationState == .activated {
             let appDictionary = ["message": spotIDArray]
             do {
@@ -160,8 +164,19 @@ extension ViewController: WCSessionDelegate{
             }
         }
     }
-    
-    
+
+}
+//removes duplicates when favoriting
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var ele = [Element: Bool]()
+        return filter {
+            ele.updateValue(true, forKey: $0) == nil
+        }
+    }
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
 }
 
 

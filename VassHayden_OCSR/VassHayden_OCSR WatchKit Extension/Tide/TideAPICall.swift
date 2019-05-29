@@ -26,7 +26,7 @@ extension InterfaceController{
                         for data in json{
                             if let thirdLevel = data as? [String: Any]{
                                 let hour = thirdLevel["hour"] as? String
-                                let chour = self.getCurrentHour()
+                                let chour = InterfaceController.getCurrentHour()
                                 // checks the current hour and pulls the data from API relevant to that hour
                                 if hour == chour{
                                     let tMeters = thirdLevel["tide_meters"] as? Double
