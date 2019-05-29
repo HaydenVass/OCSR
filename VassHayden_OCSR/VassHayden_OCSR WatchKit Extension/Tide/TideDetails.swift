@@ -21,6 +21,7 @@ class TideDetails: WKInterfaceController {
 
             tideSizeLabel.setText(details0)
             washLabel.setText(details1)
+
         }
     }
 }

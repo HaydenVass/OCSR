@@ -28,13 +28,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var coreLocationManager = CLLocationManager();
     var locationManager: LocationManager!
+    var userDefault : UserDefaults? = nil
 
     
     var allOCSpots: [BeachSpot] = []
     var allFavoriteSpotDetails: [SpotDetails] = []
+    var favID: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDefault = UserDefaults.standard
       //sets up session
         if (WCSession.isSupported()) {
             let session = WCSession.default
@@ -54,7 +57,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if authorizationCode == CLAuthorizationStatus.notDetermined && coreLocationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) ||
             coreLocationManager.responds(to: Selector(("requestWhenInUseAuthroization"))){
             if (Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription") != nil){
-                print(1)
                 coreLocationManager.requestAlwaysAuthorization();
             }else{
                 print("no descriptiong provided")
@@ -62,6 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }else{
           
         }
+        getSavedDefaults()
     }
     
     // MapView functions
@@ -110,6 +113,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let url = "http://api.spitcast.com/api/spot/forecast/" + (currentSelectedLocation?.annotation?.subtitle!)!
         + "/"
         configureFavSpotForecast(urlString: url)
+        favID.append(((currentSelectedLocation?.annotation?.subtitle)!)!)
+        userDefault?.set(favID, forKey: "favIDS")
         
     }
     
@@ -136,6 +141,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         return str
     }
+    //takes in user defaults to get saved favorite beaches
+    func getSavedDefaults(){
+        let savedArray = userDefault?.stringArray(forKey: "favIDS") ?? [String]()
+        print("get saved defaults - \(savedArray)")
+        for id in savedArray{
+            configureFavSpotForecast(urlString: "http://api.spitcast.com/api/spot/forecast/" + id + "/")
+        }
+        sendToWatch()
+    }
 }
 
 // watch sesson delegate - takes favorited beaches from phone and passes
@@ -144,15 +158,13 @@ extension ViewController: WCSessionDelegate{
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     func sessionDidBecomeInactive(_ session: WCSession) {}
     func sessionDidDeactivate(_ session: WCSession) {}
+    
     func sendToWatch() {
         let session = WCSession.default
         var spotIDArray : [String] = []
         for spot in allFavoriteSpotDetails{
             spotIDArray.append(spot.spotID ?? "na")
         }
-        // add favorites array to user defaults
-        //let userDefault = UserDefaults.standard
-        
         spotIDArray.removeDuplicates();
         if session.activationState == .activated {
             let appDictionary = ["message": spotIDArray]
